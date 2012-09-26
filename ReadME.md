@@ -1,22 +1,40 @@
 # OpenBook
 
-A protocol over HTTP & HTTPS to submit and publish content, share feedback, and take content contributions.
+A protocol over HTTP and utilizing SSL to share content and send feedback
+
+### What is OpenBook
+
+OpenBook is an open protocol to share content with your friends, like HTTP or email, except with enhanced social features. Users can create their own host and make up their own rules, but most users will use a large provider who has gained some popularity. 
+
+Some providers will allow complete control, while others will gain large userbases because they keep policies simple. All providers and users will have full access to all content on OpenBook. Just like the web, if you know the url, you can see it. But now, you have a way of identifying your friends and enemies.
+
+OpenBook if a very, very flexible protocol. You are not pidgeon-holed into a simple social design like twitter. OpenBook defines only the broadest characteristics that all social networks share.
 
 ### What OpenBook Defines
 
-* A method to browse OpenBook content
+* A method to browse public content. Content can contain rich text and links, and can be structured in a heirechal fashion using traditional paths
 
-* Content formatting, so each client can choose how to display it
+* A specific content format, so each client can choose how to display it to the user
 
-* A method to authenticate users with each-other
+* A method to authenticate users and providers with each-other
 
-* A method for OpenBook responses to be sent to a page
+  * In order to treat feedback and responses from that host specially
+
+  * In order to recognize content that comes from the same place
+  
+  * In order to know when a host is managed by a super-host
+
+* A method for responses to be sent to a page across hosts
 
 * A method for positive/negitive feedback to be provided to a page about the OpenBook content it contains
 
-### What the Provider Defines
+### What the Providers & Users Define
 
-* A user can interface with a provider in any way the provider chooses, although providers will commonly implement web front-ends
+* The way OpenBook is displayed to the user
+
+* Features like 'friends' or 'saved content' which are both fancy ways of saving URLs or downloading another server's content
+
+* A provider can interface with it's users in any way it chooses, although providers will commonly implement web front-ends for their users
 
 * Providers should vary in content policies:
   
@@ -26,11 +44,11 @@ A protocol over HTTP & HTTPS to submit and publish content, share feedback, and 
   
   * might not accept public feedback, acting like a blog / publishing platform / cms
 
-### Conventions
+* Determining security settings: by whitelisting or blacklisting domains, and recognizing hosts with good behavior
+  * Hosts can behave differently to other hosts or super-hosts which it recognizes
+  * Ability to submit feedback, submit posts, or access content should vary from host to host
 
-All of the basic requests will specify HTTP verb and method, as they change based on the type of the request. All requests transfer data with JSON, and the `Content-Type` should be labelled as such. The standard encoding for all of openbook, including paths and server addresses, is UTF-8, with full unicode character support.
-
-## Hosts
+## Hosts (OpenBook Users)
 
 An OpenBook host represents a user, and allows a user to be addressed by a domain name. ie. `username.friendbook.com` or `first.last.name`
 
@@ -40,11 +58,21 @@ A server is located at any subdomain. For example, a provider may provide their 
 
 ## Providers
 
-A provider represents a super-host of sorts.
+A provider is a super-host. In order to be a provider, you must own the parent domain which hosts reside under. In our example, the user is `username.friendbook.com`, and the provider is `friendbook.com`. When a provider is authenticated, 
 
 ## Posts
 
-A post is the name for a bit of content in 
+A post is the name for a bit of OpenBook content. They reside under any path under the host. For example, a blog post might be located at `http://first.last.name/blog/2012/hello_world`. A post can reside at _any valid url_ under the host. 
+
+ONE post is required per Host, which must be located at the host root (path /). This will most commonly be a list of all of the user's public posts.
+
+A post contains the following:
+
+* Title
+ 
+* Time Posted
+
+* Content (can contain rich text, OpenBook links, and normal links)
 
 
 ## Post Retrieval
@@ -82,10 +110,6 @@ The auth response contains the following:
 * "key": String
 
   The public SSL key that this host uses to authenticate with
-
-
-### Auth Post
-
 
 
 ## Page Submission
