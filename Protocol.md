@@ -98,6 +98,6 @@ For some providers, the posting ability will be used as a feedback mechanism, to
 
 ### PUT Page Feedback
 
-Feedback is a mechanism by which a server can tell another server that what it links to is good or bad. This might be recognized as a 'like', 'upvote', or 'downvote'. In any case, it is up to the host to respond to the feedback. Most benevolent providers will force the displaying of feedback, and some (like ones which model reddit) will use the feedback to order content and push other content off the page or onto other pages. It is up to the provider to establish concepts like 'karma'.
+Feedback is a mechanism by which a server can tell another server that what it links to is good or bad. This might be recognized as a 'like', 'upvote', or 'downvote'. In any case, it is up to the host to respond to the feedback it recieves. Most benevolent providers will force the displaying of feedback, and some (like ones which model reddit) will use the feedback to order content and push other content off the page or onto other pages.
 
-For example, say a spammer pageed a link to `username.friendbook.com` page. `somebody.name` wants to tell our friendbook server that the link pageed by the spammer is bad.
+
