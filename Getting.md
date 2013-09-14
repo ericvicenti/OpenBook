@@ -14,9 +14,24 @@ A page contains the following in a JSON object:
 
 * "body": String
 
-  The URL where the content of the page can be found.
+  The text body of the post, in [MarkShow](http://markshow.org/)
 
 
 * "date": Integer
 
-  A UNIX timestamp of the first pageing of this content
+  A UNIX timestamp declaring when this page was last updated
+
+
+* "context": String
+
+  Optional link to context where this was posted
+
+
+* "older": String
+
+  Optional link to previous version of this page
+
+
+* "newer": String
+
+  Optional link to updated/ newer version of this page
