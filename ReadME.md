@@ -42,7 +42,7 @@ These are the two actions peers use to connect and share:
 
 # License
 
-[Released under the Apache 2 License](LICENSE.md).
+[Released under the MIT License](LICENSE.md).
 
 You are free to use OpenBook protocol however you'd like.
 
