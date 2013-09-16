@@ -8,6 +8,7 @@ OpenBook requests have the header set as following:
 
   "OpenBookVersion": "0.1"
 
+
 The version should be equal or greater to 0.1, as this is the first version.
 
 ## Host Authentication
@@ -25,6 +26,7 @@ Peer is the sender of the request. Thanks to host authentication, the requester 
 Sometimes, a different peer must be specified. For example, a super-peer might want to request a page for a sub-peer.
 
   "OpenBookPeer": "myname.openface.com"
+
 
 Peer headers must be validated to ensure the authenticated peer is allowed to act as the peer they specify. For example, `openface.com` can act as `myname.openface.com` but not as `facebook.com`. OpenBook peers need to verify this in order to prevent spoofing.
 
